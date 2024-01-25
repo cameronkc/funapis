@@ -1,7 +1,5 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import drawer from '../lib/assets/drawer.svg';
-	import { e } from 'vitest/dist/reporters-rzC174PQ.js';
 
 	export let data: PageData;
 
