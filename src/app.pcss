@@ -1,0 +1,11 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root [data-theme='wintry'] {
+    --theme-font-family-base: 'MyCustomFont', sans-serif;
+    --theme-font-family-heading: 'MyCustomFont', sans-serif;
+}
+
+html, body { @apply h-full overflow-hidden; }
