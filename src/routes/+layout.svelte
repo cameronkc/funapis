@@ -63,7 +63,7 @@
 </Drawer>
 <AppShell slotSidebarLeft="bg-surface-500/5 w-0 lg:w-64">
 	<svelte:fragment slot="header">
-		<AppBar class="!bg-transparent">
+		<AppBar class="">
 			<svelte:fragment slot="lead">
 				<div class="flex items-center">
 					<button class="btn btn-sm mr-4 lg:hidden" on:click={drawerOpen}>
@@ -75,7 +75,7 @@
 							</svg>
 						</span>
 					</button>
-					<strong class="text-xl uppercase">FUNAPIS</strong>
+					<a href="/"><strong class="text-xl uppercase">FUNAPIS</strong></a>
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">(actions)</svelte:fragment>
