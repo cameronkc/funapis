@@ -4,6 +4,7 @@
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 	import { initializeStores, Drawer, getDrawerStore } from '@skeletonlabs/skeleton';
 
+
 	export let data: LayoutData;
 
 	initializeStores();
@@ -53,6 +54,8 @@
 </script>
 
 <Drawer class="max-w-50">
+	<div class="p-2">
+		<strong><h1 class="text-lg">Categories</h1></strong>
 	<ul class="p-2">
 		{#each categories as category}
 			<li class="p-1">
@@ -60,6 +63,7 @@
 			</li>
 		{/each}
 	</ul>
+	</div>
 </Drawer>
 <AppShell slotSidebarLeft="bg-surface-500/5 w-0 lg:w-64">
 	<svelte:fragment slot="header">
@@ -75,13 +79,17 @@
 							</svg>
 						</span>
 					</button>
-					<a href="/"><strong class="text-xl uppercase">FUNAPIS</strong></a>
+					<a href="/"><strong class="text-xl uppercase">
+						<span class="bg-gradient-to-br from-red-500 to-yellow-500 bg-clip-text text-transparent box-decoration-clone">FUNAPIS</span>
+					</strong></a>
 				</div>
 			</svelte:fragment>
-			<svelte:fragment slot="trail">(actions)</svelte:fragment>
+			<svelte:fragment slot="trail">sign in</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
 	<svelte:fragment slot="sidebarLeft">
+		<div class="p-2">
+			<strong><span class="bg-gradient-to-br from-blue-500 to-cyan-300 bg-clip-text text-transparent box-decoration-clone text-xl">Categories</span></strong>
 		<ul class="p-2">
 			{#each categories as category}
 				<li class="p-1">
@@ -89,6 +97,7 @@
 				</li>
 			{/each}
 		</ul>
+		</div>
 	</svelte:fragment>
 	<!-- (sidebarRight) -->
 	<!-- (pageHeader) -->

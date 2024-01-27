@@ -3,8 +3,9 @@
 
 	export let data: PageData;
 </script>
+
 <section class="w-full text-sm">
 	<strong>
-		{ "api count: "  + data.entries.length }
+		{'api count: ' + data.entries.length}
 	</strong>
 </section>
