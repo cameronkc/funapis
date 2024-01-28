@@ -14,6 +14,10 @@
 	function drawerOpen(): void {
 		drawerStore.open({});
 	}
+	function drawerClose(): void {
+		console.log("drawer closing:")
+		drawerStore.close();
+	}
 
 	interface Entry {
 		// ... other properties
@@ -53,13 +57,13 @@
 	}
 </script>
 
-<Drawer class="max-w-50">
-	<div class="p-2">
-		<strong><h1 class="text-lg">Categories</h1></strong>
+<Drawer class="" >
+	<div class="p-4">
+		<strong><span class="bg-gradient-to-br from-blue-500 to-cyan-300 bg-clip-text text-transparent box-decoration-clone text-xl">Categories</span></strong>
 	<ul class="p-2">
 		{#each categories as category}
-			<li class="p-1">
-				<a href={`/category/${category.slug}`}>{category.name}</a>
+			<li class="p-1" >
+				<a class="text-slate-500" on:click={drawerClose} href={`/category/${category.slug}`}>{category.name}</a>
 			</li>
 		{/each}
 	</ul>
@@ -67,9 +71,9 @@
 </Drawer>
 <AppShell slotSidebarLeft="bg-surface-500/5 w-0 lg:w-64">
 	<svelte:fragment slot="header">
-		<AppBar class="">
+		<AppBar >
 			<svelte:fragment slot="lead">
-				<div class="flex items-center">
+				<div class="m-auto flex items-center">
 					<button class="btn btn-sm mr-4 lg:hidden" on:click={drawerOpen}>
 						<span>
 							<svg viewBox="0 0 100 80" class="fill-token h-4 w-4">
@@ -88,12 +92,12 @@
 		</AppBar>
 	</svelte:fragment>
 	<svelte:fragment slot="sidebarLeft">
-		<div class="p-2">
+		<div class="p-4">
 			<strong><span class="bg-gradient-to-br from-blue-500 to-cyan-300 bg-clip-text text-transparent box-decoration-clone text-xl">Categories</span></strong>
 		<ul class="p-2">
 			{#each categories as category}
-				<li class="p-1">
-					<a href={`/category/${category.slug}`}>{category.name}</a>
+				<li class="p-1" >
+					<a class="text-slate-500" href={`/category/${category.slug}`}>{category.name}</a>
 				</li>
 			{/each}
 		</ul>
@@ -110,8 +114,3 @@
 	<!-- (footer) -->
 </AppShell>
 
-<AppBar>
-	<svelte:fragment slot="lead">(icon)</svelte:fragment>
-	(title)
-	<svelte:fragment slot="trail">(actions)</svelte:fragment>
-</AppBar>
