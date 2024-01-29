@@ -1,10 +1,13 @@
 <script lang="ts">
+	import { createSearchStore, searchHandler } from '$lib/stores/search';
+	import { onDestroy } from 'svelte';
 	import '../app.pcss';
 	import type { LayoutData } from './$types';
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 	import { initializeStores, Drawer, getDrawerStore } from '@skeletonlabs/skeleton';
 
 	export let data: LayoutData;
+
 
 	initializeStores();
 
@@ -89,7 +92,7 @@
 							</svg>
 						</span>
 					</button>
-					<a href="/"
+					<a href="/" data-sveltekit-preload-data="hover"
 						><strong class="text-xl uppercase">
 							<span
 								class="bg-gradient-to-br from-red-500 to-yellow-500 box-decoration-clone bg-clip-text text-transparent lg:pl-8"
@@ -97,11 +100,6 @@
 							>
 						</strong></a
 					>
-				</div>
-			</svelte:fragment>
-			<svelte:fragment slot="default">
-				<div class="hidden md:input-group input-group-divider grid-cols-[auto_1fr_auto] max-w-md m-auto">
-					<input type="search" placeholder="Search..." />
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
