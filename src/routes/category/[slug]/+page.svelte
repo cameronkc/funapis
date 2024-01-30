@@ -8,6 +8,9 @@
 		description: string;
 		category: string;
 		link: string;
+		https: boolean;
+		auth: string | null;
+		cors: string;
 	}
 
 	let entries: Entry[] = data.entries;
@@ -45,17 +48,35 @@
 	<div class="text-center mt-20">
 		<ul class="grid text-center gap-4 text-center md:grid-cols-2 lg:grid-cols-3">
 			{#each filteredEntries as entry}
-				<a href={entry.link} target="_blank" class="card card-hover max-w-96 inline-block">
-					<li>
-						<header class="card-header text-lg">
-							<strong><h1>{entry.title}</h1></strong>
-						</header>
-						<section class="text-wrap text-slate-500 p-4">
-							<p>{entry.description}</p>
-						</section>
-						<footer class="card-footer">(footer)</footer>
-					</li>
-				</a>
+			<a href={entry.link} target="_blank" class="card card-hover inline-block">
+				<li class="flex flex-col h-max">
+					<header class="card-header h-fit text-lg">
+						<strong><h1>{entry.title}</h1></strong>
+					</header>
+					<main class="h-fit text-wrap pt-4 text-slate-500 h-20">
+						<p>{entry.description}</p>
+					</main>
+					<footer class="card-footer flex justify-between p-4 ">
+						
+							{#if entry.https}
+								<h3>https</h3>
+							{:else}
+								<h3 class="text-[#3de878]">https</h3>
+							{/if}
+							{#if entry.auth === ''}
+								<h3>API KEY</h3>
+							{:else}
+								<h3 class="text-[#3de878]">API KEY</h3>
+							{/if}
+							{#if entry.cors.toLowerCase() === 'yes'}
+								<h3 class="text-[#3de878]">cors</h3>
+							{:else}
+								<h3>cors</h3>
+							{/if}
+					
+					</footer>
+				</li>
+			</a>
 			{/each}
 		</ul>
 	</div>
