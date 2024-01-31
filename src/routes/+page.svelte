@@ -27,21 +27,24 @@
 		unsubscribe();
 	});
 </script>
-
 <div class="grid justify-center text-center">
-	<div class="md:input-group input-group-divider m-auto hidden max-w-md grid-cols-[auto_1fr_auto]">
+	<div class="pb-10">
+		<strong>
+			<span class="text-5xl bg-gradient-to-br from-blue-500 to-cyan-300 bg-clip-text text-transparent md:text-6xl lg:text:8xl">
+				Funapis, a collection of over 1,500 API's.
+			</span>
+	
+		</strong>
+	</div>
+	<div class="input-group input-group-divider m-auto max-w-md grid-cols-[auto_1fr_auto]">
 		<input type="search" placeholder="Search..." bind:value={$searchStore.search} />
 	</div>
-
-	<h1 class="pt-2 text-2xl">
-		{'api count: ' + data.entries.length}
-	</h1>
 </div>
 <section class="w-full text-sm">
 	<div class="mt-20 text-center">
 		<ul class="grid gap-4 text-center text-center md:grid-cols-2 lg:grid-cols-3">
 			{#each $searchStore.filtered as entry}
-				<a href={entry.link} target="_blank" class="card card-hover inline-block">
+				<a href={entry.link} target="_blank" class="card card-hover inline-block p-4 m-4">
 					<li class="flex flex-col h-max">
 						<header class="card-header h-fit text-lg">
 							<strong><h1>{entry.title}</h1></strong>
@@ -49,7 +52,7 @@
 						<main class="h-fit text-wrap pt-4 text-slate-500 h-20">
 							<p>{entry.description}</p>
 						</main>
-						<footer class="card-footer flex justify-between p-4 ">
+						<footer class="card-footer flex justify-between">
 							
 								{#if entry.https}
 									<h3>https</h3>

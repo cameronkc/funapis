@@ -131,7 +131,7 @@
 	</svelte:fragment>
 
 	<svelte:fragment slot="default">
-		<div class="grid justify-center p-5 on:click={drawerClose}">
+		<div class="grid justify-center p-20 on:click={drawerClose}">
 			<slot />
 		</div>
 	</svelte:fragment>

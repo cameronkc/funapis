@@ -48,12 +48,12 @@
 	<div class="text-center mt-20">
 		<ul class="grid text-center gap-4 text-center md:grid-cols-2 lg:grid-cols-3">
 			{#each filteredEntries as entry}
-			<a href={entry.link} target="_blank" class="card card-hover inline-block">
+			<a href={entry.link} target="_blank" class="card  card-hover inline-block lg:p-4 m-4">
 				<li class="flex flex-col h-max">
 					<header class="card-header h-fit text-lg">
 						<strong><h1>{entry.title}</h1></strong>
 					</header>
-					<main class="h-fit text-wrap pt-4 text-slate-500 h-20">
+					<main class="h-fit text-wrap p-4 text-slate-500 h-20">
 						<p>{entry.description}</p>
 					</main>
 					<footer class="card-footer flex justify-between p-4 ">
